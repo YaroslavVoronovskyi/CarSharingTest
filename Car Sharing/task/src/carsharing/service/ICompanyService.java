@@ -1,11 +1,10 @@
-package carsharing.dao;
+package carsharing.service;
 
 import carsharing.model.Company;
 
-import java.sql.SQLException;
 import java.util.List;
 
-public interface ICompanyDao {
+public interface ICompanyService {
 
     Company getById(int id);
 
