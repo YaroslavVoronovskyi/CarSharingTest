@@ -47,14 +47,15 @@ public class CarDao implements ICarDao {
     }
 
     @Override
-    public List<Car> getAll() {
+    public List<Car> getAllBy(int id) {
         List<Car> carsList = new ArrayList<>();
         Connection connection = null;
         PreparedStatement statement = null;
         try {
             Class.forName(Constants.DB_DRIVER);
             connection = DriverManager.getConnection(Constants.DB_URL);
-            statement = connection.prepareStatement(Constants.CAR_GET_ALL_QUERY);
+            statement = connection.prepareStatement(Constants.CAR_GET_ALL_QUERY_BY_);
+            statement.setInt(Constants.FIRST_COLUMN_INDEX, id);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 Car car = new Car();
@@ -80,6 +81,42 @@ public class CarDao implements ICarDao {
         }
         return carsList;
     }
+
+
+//    @Override
+//    public List<Car> getAll() {
+//        List<Car> carsList = new ArrayList<>();
+//        Connection connection = null;
+//        PreparedStatement statement = null;
+//        try {
+//            Class.forName(Constants.DB_DRIVER);
+//            connection = DriverManager.getConnection(Constants.DB_URL);
+//            statement = connection.prepareStatement(Constants.CAR_GET_ALL_QUERY);
+//            ResultSet resultSet = statement.executeQuery();
+//            while (resultSet.next()) {
+//                Car car = new Car();
+//                car.setId(resultSet.getInt(Constants.FIRST_COLUMN_INDEX));
+//                car.setName(resultSet.getString(Constants.SECOND_COLUMN_INDEX));
+//                car.setCompanyId(resultSet.getInt(Constants.THIRD_COLUMN_INDEX));
+//                carsList.add(car);
+//            }
+//            statement.close();
+//            connection.close();
+//        } catch (Exception exception) {
+//            exception.printStackTrace();
+//        } finally {
+//            try {
+//                if (statement != null) statement.close();
+//            } catch (SQLException ignored) {
+//            }
+//            try {
+//                if (connection != null) connection.close();
+//            } catch (SQLException exception) {
+//                exception.printStackTrace();
+//            }
+//        }
+//        return carsList;
+//    }
 
     @Override
     public void save(Car car) {

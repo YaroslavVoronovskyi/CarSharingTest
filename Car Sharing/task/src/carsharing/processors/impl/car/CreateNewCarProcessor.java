@@ -2,6 +2,7 @@ package carsharing.processors.impl.car;
 
 import carsharing.ConsoleReader;
 import carsharing.model.Car;
+import carsharing.model.Company;
 import carsharing.processors.ICarProcessors;
 import carsharing.service.ICarService;
 
@@ -16,6 +17,7 @@ public class CreateNewCarProcessor implements ICarProcessors {
     @Override
     public boolean doAction(int companyId) {
         String name = ConsoleReader.getStringFromConsole("Enter the car name:");
+//        int companyId = company.getId();
         Car car = new Car(name, companyId);
         carService.save(car);
         System.out.println("The car was created!");

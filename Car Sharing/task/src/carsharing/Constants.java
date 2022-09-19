@@ -35,6 +35,9 @@ public class Constants {
     public static final String CAR_GET_QUERY = "SELECT * FROM car WHERE id = ?";
     public static final String CAR_GET_ALL_QUERY = "SELECT * FROM car";
 
+
+    public static final String CAR_GET_ALL_QUERY_BY_ = "SELECT * FROM car WHERE company_id = ?";
+
     public static final String DOT_SEPARATOR = ". ";
 
     public static final String DELIMETER = " ";

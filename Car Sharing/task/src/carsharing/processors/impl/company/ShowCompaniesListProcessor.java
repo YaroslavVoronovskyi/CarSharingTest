@@ -24,8 +24,8 @@ public class ShowCompaniesListProcessor implements ICompanyProcessors {
     @Override
     public boolean doAction() {
         List<Company> companiesList = companyService.getAll();
-        if (companiesList.size() == 0) {
-            System.out.println("The company list is empty");
+        if (companiesList.size() == 0 | companiesList.isEmpty()) {
+            System.out.println("The company list is empty!");
             return true;
         }
 
@@ -48,7 +48,6 @@ public class ShowCompaniesListProcessor implements ICompanyProcessors {
         } else {
             boolean needContinue = true;
             while (needContinue) {
-
                 Company company = companyService.getById(recordNumber);
                 String actionTitle = ConsoleReader.getStringFromConsole("'" + company.getName() + "' company:" + Constants.LINE_SEPARATOR
                         + "1. Car list" + Constants.LINE_SEPARATOR
@@ -61,8 +60,6 @@ public class ShowCompaniesListProcessor implements ICompanyProcessors {
 //                }
             }
         }
-
-
 
 
 //        if (recordNumber > 0) {

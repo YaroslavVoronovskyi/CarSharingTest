@@ -16,15 +16,21 @@ public class CarService implements ICarService {
 
     @Override
     public Car getById(int id) {
+
         return carDao.getById(id);
     }
 
-    @Override
-    public List<Car> getAll() {
-        return carDao.getAll();
-    }
+//    @Override
+//    public List<Car> getAll() {
+//        return carDao.getAll();
+//    }
 
     @Override
+    public List<Car> getAllBy(int id) {
+        return carDao.getAllBy(id);
+    }
+
+        @Override
     public void save(Car car) {
         carDao.save(car);
     }

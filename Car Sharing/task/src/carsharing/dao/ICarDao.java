@@ -8,7 +8,9 @@ public interface ICarDao {
 
     Car getById(int id);
 
-    List<Car> getAll();
+    List<Car> getAllBy(int id);
+
+//    List<Car> getAll();
 
     void save(Car car);
 

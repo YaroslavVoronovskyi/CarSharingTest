@@ -21,21 +21,28 @@ public class ShowCarsListProcessor implements ICarProcessors {
 
     @Override
     public boolean doAction(int companyId) {
-        List<Car> carsList = carService.getAll();
-        Company company = companyService.getById(companyId);
+        List<Car> carsList = carService.getAllBy(companyId);
+
+        if (carsList.size() == 0) {
+            System.out.println("The car list is empty!");
+            return true;
+        }
+
+//        Company company = companyService.getById(companyId);
+
+
         int index = 0;
-        System.out.println("'" + company.getName() + "' company:");
+
+//        System.out.println("'" + company.getName() + "' company:");
         for (Car car : carsList) {
-            if (car.getCompanyId() == 0) {
+            if (companyId != car.getCompanyId()) {
                 System.out.println("The car list is empty!");
+                return true;
             }
             index++;
             System.out.println(index + Constants.DOT_SEPARATOR + car.getName());
 
-            if (carsList.size() == 0) {
-                System.out.println("The car list is empty!");
-                return true;
-            }
+
 //            System.out.println(car.getCompanyId() + Constants.DOT_SEPARATOR + car.getId()
 //                    + Constants.FIRST_COLUMN_INDEX + car.getCompanyId());
 //            index++;

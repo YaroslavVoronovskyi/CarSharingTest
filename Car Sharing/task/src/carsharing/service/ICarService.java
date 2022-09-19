@@ -8,7 +8,9 @@ public interface ICarService {
 
     Car getById(int id);
 
-    List<Car> getAll();
+//    List<Car> getAll();
+
+    List<Car> getAllBy(int id);
 
     void save(Car car);
 
