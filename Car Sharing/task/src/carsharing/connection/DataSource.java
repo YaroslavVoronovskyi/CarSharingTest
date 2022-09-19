@@ -15,7 +15,8 @@ public class DataSource {
             Class.forName(Constants.DB_DRIVER);
             connection = DriverManager.getConnection(Constants.DB_URL);
             statement = connection.createStatement();
-            statement.executeUpdate(Constants.INNIT_SQL_QUERY);
+            statement.executeUpdate(Constants.CREATE_TABLE_COMPANY_SQL_QUERY);
+            statement.executeUpdate(Constants.CREATE_TABLE_CAR_SQL_QUERY);
             statement.close();
             connection.close();
         } catch (Exception exception) {

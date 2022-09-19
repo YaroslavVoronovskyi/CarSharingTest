@@ -2,16 +2,21 @@ package carsharing.model;
 
 import carsharing.Constants;
 
-public class Company {
-
+public class Car {
     int id;
     String name;
+    int companyId;
 
-    public Company() {
+    public Car() {
     }
 
-    public Company(String name) {
+    public Car(String name) {
         this.name = name;
+    }
+
+    public Car(String name, int companyId) {
+        this.name = name;
+        this.companyId = companyId;
     }
 
     public int getId() {
@@ -30,8 +35,16 @@ public class Company {
         this.name = name;
     }
 
+    public int getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(int companyId) {
+        this.companyId = companyId;
+    }
+
     @Override
     public String toString() {
-        return id + Constants.DOT_SEPARATOR + name;
+        return id + Constants.DOT_SEPARATOR + name + companyId;
     }
 }
