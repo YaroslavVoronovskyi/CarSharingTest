@@ -24,6 +24,16 @@ public class Constants {
                     "    CONSTRAINT car_company_id_fkey FOREIGN KEY (company_id)" + LINE_SEPARATOR +
                     "    REFERENCES company (id));";
 
+    public static final String CREATE_TABLE_CUSTOMER_SQL_QUERY =
+            "DROP TABLE IF EXISTS customer CASCADE;" + LINE_SEPARATOR +
+                    "CREATE TABLE customer (" + LINE_SEPARATOR +
+                    "    id SERIAL NOT NULL PRIMARY KEY," + LINE_SEPARATOR +
+                    "    name CHARACTER VARYING(30) UNIQUE NOT NULL," + LINE_SEPARATOR +
+                    "    rented_car_id INT," + LINE_SEPARATOR +
+                    "    CONSTRAINT customer_pkey PRIMARY KEY (id)," + LINE_SEPARATOR +
+                    "    CONSTRAINT customer_car_id_fkey FOREIGN KEY (rented_car_id)" + LINE_SEPARATOR +
+                    "    REFERENCES car (id));";
+
     public static final String READ_FROM_CONSOLE_ERROR_MESSAGE = "Sorry, something went wrong while reading from the console ... ";
     public static final int FIRST_COLUMN_INDEX = 1;
     public static final int SECOND_COLUMN_INDEX = 2;
@@ -34,10 +44,12 @@ public class Constants {
     public static final String CAR_INSERT_QUERY = "INSERT INTO car (name, company_id) VALUES (?, ?)";
     public static final String CAR_GET_QUERY = "SELECT * FROM car WHERE id = ?";
     public static final String CAR_GET_ALL_QUERY = "SELECT * FROM car";
+    public static final String CAR_GET_ALL_QUERY_BY_COMPANY_ID = "SELECT * FROM car WHERE company_id = ?";
 
-
-    public static final String CAR_GET_ALL_QUERY_BY_ = "SELECT * FROM car WHERE company_id = ?";
-
+    public static final String CUSTOMER_INSERT_QUERY = "INSERT INTO customer (name) VALUES (?)";
+    public static final String CUSTOMER_GET_QUERY = "SELECT * FROM customer WHERE id = ?";
+    public static final String CUSTOMER_GET_ALL_QUERY = "SELECT * FROM customer";
+    public static final String CUSTOMER_GET_ALL_QUERY_BY_CAR_ID = "SELECT * FROM customer WHERE rented_car_id = ?";
     public static final String DOT_SEPARATOR = ". ";
 
     public static final String DELIMETER = " ";

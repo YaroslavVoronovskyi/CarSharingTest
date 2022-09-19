@@ -24,7 +24,7 @@ public class ShowCompaniesListProcessor implements ICompanyProcessors {
     @Override
     public boolean doAction() {
         List<Company> companiesList = companyService.getAll();
-        if (companiesList.size() == 0 | companiesList.isEmpty()) {
+        if (companiesList.size() == 0) {
             System.out.println("The company list is empty!");
             return true;
         }

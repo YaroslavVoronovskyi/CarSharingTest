@@ -10,7 +10,7 @@ public interface ICarService {
 
 //    List<Car> getAll();
 
-    List<Car> getAllBy(int id);
+    List<Car> getAllByCompanyId(int companyId);
 
     void save(Car car);
 

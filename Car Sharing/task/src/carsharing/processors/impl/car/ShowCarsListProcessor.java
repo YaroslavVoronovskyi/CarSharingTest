@@ -2,7 +2,6 @@ package carsharing.processors.impl.car;
 
 import carsharing.Constants;
 import carsharing.model.Car;
-import carsharing.model.Company;
 import carsharing.processors.ICarProcessors;
 import carsharing.service.ICarService;
 import carsharing.service.ICompanyService;
@@ -21,7 +20,7 @@ public class ShowCarsListProcessor implements ICarProcessors {
 
     @Override
     public boolean doAction(int companyId) {
-        List<Car> carsList = carService.getAllBy(companyId);
+        List<Car> carsList = carService.getAllByCompanyId(companyId);
 
         if (carsList.size() == 0) {
             System.out.println("The car list is empty!");

@@ -26,8 +26,8 @@ public class CarService implements ICarService {
 //    }
 
     @Override
-    public List<Car> getAllBy(int id) {
-        return carDao.getAllBy(id);
+    public List<Car> getAllByCompanyId(int companyId) {
+        return carDao.getAllByCompanyId(companyId);
     }
 
         @Override

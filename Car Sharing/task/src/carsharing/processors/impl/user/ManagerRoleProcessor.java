@@ -6,9 +6,9 @@ import carsharing.processors.ICompanyProcessors;
 import carsharing.processors.ICompanyProcessorsFactory;
 import carsharing.processors.IUsersRoleActionProcessor;
 
-public class RoleManagerProcessor implements IUsersRoleActionProcessor {
+public class ManagerRoleProcessor implements IUsersRoleActionProcessor {
 
-    public RoleManagerProcessor(ICompanyProcessorsFactory crudCompanyProcessorsFactory) {
+    public ManagerRoleProcessor(ICompanyProcessorsFactory crudCompanyProcessorsFactory) {
         this.crudCompanyProcessorsFactory = crudCompanyProcessorsFactory;
     }
 

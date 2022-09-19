@@ -3,7 +3,6 @@ package carsharing.dao.impl;
 import carsharing.Constants;
 import carsharing.dao.ICarDao;
 import carsharing.model.Car;
-import carsharing.model.Company;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -47,15 +46,15 @@ public class CarDao implements ICarDao {
     }
 
     @Override
-    public List<Car> getAllBy(int id) {
+    public List<Car> getAllByCompanyId(int companyId) {
         List<Car> carsList = new ArrayList<>();
         Connection connection = null;
         PreparedStatement statement = null;
         try {
             Class.forName(Constants.DB_DRIVER);
             connection = DriverManager.getConnection(Constants.DB_URL);
-            statement = connection.prepareStatement(Constants.CAR_GET_ALL_QUERY_BY_);
-            statement.setInt(Constants.FIRST_COLUMN_INDEX, id);
+            statement = connection.prepareStatement(Constants.CAR_GET_ALL_QUERY_BY_COMPANY_ID);
+            statement.setInt(Constants.FIRST_COLUMN_INDEX, companyId);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 Car car = new Car();

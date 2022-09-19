@@ -15,8 +15,11 @@ public class CarSharing {
         try {
             boolean needContinue = true;
             while (needContinue) {
-                String actionTitle = ConsoleReader.getStringFromConsole("1. Log in as a manager" +
-                        Constants.LINE_SEPARATOR + "0. Exit");
+                String actionTitle = ConsoleReader.getStringFromConsole(
+                        "1. Log in as a manager" + Constants.LINE_SEPARATOR +
+                        "2. Log in as a customer" + Constants.LINE_SEPARATOR +
+                        "3. Create a customer" + Constants.LINE_SEPARATOR +
+                        "0. Exit");
                 IUsersRoleActionProcessor processor = processorFactory.getProcessorByAction(actionTitle);
                 needContinue = processor.doAction();
             }

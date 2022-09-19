@@ -8,7 +8,7 @@ public interface ICarDao {
 
     Car getById(int id);
 
-    List<Car> getAllBy(int id);
+    List<Car> getAllByCompanyId(int companyId);
 
 //    List<Car> getAll();
 

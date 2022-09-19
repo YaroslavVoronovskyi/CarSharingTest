@@ -17,6 +17,7 @@ public class DataSource {
             statement = connection.createStatement();
             statement.executeUpdate(Constants.CREATE_TABLE_COMPANY_SQL_QUERY);
             statement.executeUpdate(Constants.CREATE_TABLE_CAR_SQL_QUERY);
+            statement.executeUpdate(Constants.CREATE_TABLE_CUSTOMER_SQL_QUERY);
             statement.close();
             connection.close();
         } catch (Exception exception) {
