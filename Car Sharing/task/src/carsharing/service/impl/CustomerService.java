@@ -25,8 +25,8 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public List<Customer> getAllByCarId(int carId) {
-        return customerDao.getAllByCompanyId(carId);
+    public List<Customer> getAllByCarId(int customerId) {
+        return customerDao.getAllByCompanyId(customerId);
     }
 
     @Override

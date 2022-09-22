@@ -18,6 +18,7 @@ public class CompanyDao implements ICompanyDao {
         try {
             Class.forName(Constants.DB_DRIVER);
             connection = DriverManager.getConnection(Constants.DB_URL);
+            connection.setAutoCommit(true);
             statement = connection.prepareStatement(Constants.COMPANY_GET_QUERY);
             statement.setInt(Constants.FIRST_COLUMN_INDEX, id);
             ResultSet resultSet = statement.executeQuery();
@@ -52,6 +53,7 @@ public class CompanyDao implements ICompanyDao {
         try {
             Class.forName(Constants.DB_DRIVER);
             connection = DriverManager.getConnection(Constants.DB_URL);
+            connection.setAutoCommit(true);
             statement = connection.prepareStatement(Constants.COMPANY_GET_ALL_QUERY);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -85,6 +87,7 @@ public class CompanyDao implements ICompanyDao {
         try {
             Class.forName(Constants.DB_DRIVER);
             connection = DriverManager.getConnection(Constants.DB_URL);
+            connection.setAutoCommit(true);
             statement = connection.prepareStatement(Constants.COMPANY_INSERT_QUERY);
             statement.setString(Constants.FIRST_COLUMN_INDEX, company.getName());
             statement.execute();

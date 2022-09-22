@@ -3,9 +3,10 @@ package carsharing.model;
 import carsharing.Constants;
 
 public class Car {
-    int id;
-    String name;
-    int companyId;
+    private int id;
+    private String name;
+    private int companyId;
+    private boolean rented;
 
     public Car() {
     }
@@ -41,6 +42,14 @@ public class Car {
 
     public void setCompanyId(int companyId) {
         this.companyId = companyId;
+    }
+
+    public boolean isRented() {
+        return rented;
+    }
+
+    public void setRented(boolean rented) {
+        this.rented = rented;
     }
 
     @Override

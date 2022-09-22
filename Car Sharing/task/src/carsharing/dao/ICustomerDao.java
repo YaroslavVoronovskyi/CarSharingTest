@@ -11,7 +11,7 @@ public interface ICustomerDao {
 
     List<Customer> getAll();
 
-    List<Customer> getAllByCompanyId(int carId);
+    List<Customer> getAllByCompanyId(int customerId);
 
     void save(Customer customer);
 

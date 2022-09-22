@@ -4,7 +4,7 @@ import carsharing.processors.ICustomerProcessors;
 
 public class BackFromCustomerMenuToPreviousMenuProcessor implements ICustomerProcessors {
     @Override
-    public boolean doAction(int rentedCarId) {
+    public boolean doAction(int customerId) {
         return false;
     }
 

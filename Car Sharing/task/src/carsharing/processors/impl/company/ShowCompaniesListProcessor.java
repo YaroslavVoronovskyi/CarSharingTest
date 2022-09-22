@@ -29,70 +29,30 @@ public class ShowCompaniesListProcessor implements ICompanyProcessors {
             return true;
         }
 
-//        System.out.println("Choose a company: ");
-//        Company company = companiesList.get(recordNumber);
-//        System.out.println("'" + company.getName() + "'" + "" +
-//                " company:" );
         int index = 0;
         System.out.println("Choose a company: ");
         for (Company company : companiesList) {
             index++;
             System.out.println(index + Constants.DOT_SEPARATOR + company.getName());
-//            System.out.println(company.getId() + Constants.DOT_SEPARATOR + company.getName());
         }
         System.out.println("0. Back");
-        int recordNumber = ConsoleReader.getIntFromConsole();
 
-        if (recordNumber == 0) {
+        int companyId = ConsoleReader.getIntFromConsole();
+
+        if (companyId == 0) {
             return true;
         } else {
             boolean needContinue = true;
             while (needContinue) {
-                Company company = companyService.getById(recordNumber);
+                Company company = companiesList.get(companyId - 1);
                 String actionTitle = ConsoleReader.getStringFromConsole("'" + company.getName() + "' company:" + Constants.LINE_SEPARATOR
                         + "1. Car list" + Constants.LINE_SEPARATOR
-                        + "2. Create a car" + Constants.LINE_SEPARATOR + "0. Back");
+                        + "2. Create a car" + Constants.LINE_SEPARATOR
+                        + "0. Back");
                 ICarProcessors carsProcessors = carProcessorsFactory.getProcessorByAction(actionTitle);
-//                carsProcessors.doAction(company);
-                needContinue = carsProcessors.doAction(recordNumber);
-//                if (recordNumber == 0) {
-//                    return false;
-//                }
+                needContinue = carsProcessors.doAction(company.getId());
             }
         }
-
-
-//        if (recordNumber > 0) {
-
-//        } else {
-//            System.out.println("0. Back");
-//        }
-
-//        System.out.println("0. Back");
-////
-//       int recordNumber = ConsoleReader.getIntFromConsole();
-
-
-//        System.out.println(companiesList.get(recordNumber));
-////
-//        Company company = companiesList.get(recordNumber);
-//        System.out.println(company);
-
-
-////        System.out.println("1. Car list" + Constants.LINE_SEPARATOR
-////                + "2. Create a car" + Constants.LINE_SEPARATOR + "0. Back");
-//////
-////
-
-//        boolean needContinue = true;
-//        while (needContinue) {
-//        String actionTitle = ConsoleReader.getStringFromConsole("'Company name' company:" + Constants.LINE_SEPARATOR
-//                + "1. Car list" + Constants.LINE_SEPARATOR
-//                + "2. Create a car" + Constants.LINE_SEPARATOR + "0. Back");
-//        ICarProcessors carsProcessors = carProcessorsFactory.getProcessorByAction(actionTitle);
-//        carsProcessors.doAction(company);
-//            needContinue = carsProcessors.doAction(company);
-//        }
         return true;
     }
 

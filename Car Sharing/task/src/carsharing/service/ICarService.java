@@ -17,4 +17,6 @@ public interface ICarService {
     void update(Car car);
 
     void delete(Car car);
+
+    Car getCar(int companyId);
 }

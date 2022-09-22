@@ -9,7 +9,7 @@ public interface ICustomerService {
 
     List<Customer> getAll();
 
-    List<Customer> getAllByCarId(int carId);
+    List<Customer> getAllByCarId(int customerId);
 
     void save(Customer customer);
 

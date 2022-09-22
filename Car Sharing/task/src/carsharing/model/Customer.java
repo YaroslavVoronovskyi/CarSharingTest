@@ -1,14 +1,12 @@
 package carsharing.model;
 
-import carsharing.Constants;
-
 public class Customer {
 
     private int id;
 
     private String name;
 
-    private int rentedCarId;
+    private Integer rentedCarId;
 
     public Customer() {
     }
@@ -17,7 +15,7 @@ public class Customer {
         this.name = name;
     }
 
-    public Customer(String name, int rentedCarId) {
+    public Customer(int id, String name, Integer rentedCarId) {
         this.name = name;
         this.rentedCarId = rentedCarId;
     }
@@ -38,16 +36,20 @@ public class Customer {
         this.name = name;
     }
 
-    public int getRentedCarId() {
+    public Integer getRentedCarId() {
         return rentedCarId;
     }
 
-    public void setRentedCarId(int rentedCarId) {
+    public void setRentedCarId(Integer rentedCarId) {
         this.rentedCarId = rentedCarId;
     }
 
     @Override
     public String toString() {
-        return id + Constants.DOT_SEPARATOR + name + rentedCarId;
+        return name;
     }
+
+//    public String toString() {
+//        return id + Constants.DOT_SEPARATOR + name + Constants.DELIMETER + rentedCarId;
+//    }
 }

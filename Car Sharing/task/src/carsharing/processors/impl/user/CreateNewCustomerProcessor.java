@@ -17,7 +17,6 @@ public class CreateNewCustomerProcessor implements IUsersRoleActionProcessor {
     public boolean doAction() {
         String name = ConsoleReader.getStringFromConsole("Enter the customer name:");
         Customer customer = new Customer(name);
-//        customer.setRentedCarId(0);
         customerService.save(customer);
         System.out.println("The customer was created!");
         return true;

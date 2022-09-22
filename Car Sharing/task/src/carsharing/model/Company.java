@@ -4,8 +4,8 @@ import carsharing.Constants;
 
 public class Company {
 
-    int id;
-    String name;
+    private int id;
+    private String name;
 
     public Company() {
     }

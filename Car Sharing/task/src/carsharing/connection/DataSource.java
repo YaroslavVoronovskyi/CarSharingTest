@@ -14,10 +14,12 @@ public class DataSource {
         try {
             Class.forName(Constants.DB_DRIVER);
             connection = DriverManager.getConnection(Constants.DB_URL);
+            connection.setAutoCommit(true);
             statement = connection.createStatement();
             statement.executeUpdate(Constants.CREATE_TABLE_COMPANY_SQL_QUERY);
             statement.executeUpdate(Constants.CREATE_TABLE_CAR_SQL_QUERY);
             statement.executeUpdate(Constants.CREATE_TABLE_CUSTOMER_SQL_QUERY);
+            statement.executeUpdate("ALTER TABLE COMPANY ALTER COLUMN ID RESTART WITH 1");
             statement.close();
             connection.close();
         } catch (Exception exception) {

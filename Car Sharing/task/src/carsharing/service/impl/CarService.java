@@ -30,7 +30,7 @@ public class CarService implements ICarService {
         return carDao.getAllByCompanyId(companyId);
     }
 
-        @Override
+    @Override
     public void save(Car car) {
         carDao.save(car);
     }
@@ -43,5 +43,10 @@ public class CarService implements ICarService {
     @Override
     public void delete(Car car) {
         carDao.delete(car);
+    }
+
+    @Override
+    public Car getCar(int companyId) {
+        return carDao.getCar(companyId);
     }
 }
