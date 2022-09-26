@@ -2,6 +2,6 @@ package carsharing.processors;
 
 public interface ICarProcessorsFactory {
 
-    ICarProcessors getProcessorByAction(String actionTitle);
+    ICarProcessors getCarProcessorByAction(String actionTitle);
 
 }

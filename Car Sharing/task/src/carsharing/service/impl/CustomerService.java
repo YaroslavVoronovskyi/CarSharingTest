@@ -25,11 +25,6 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public List<Customer> getAllByCarId(int customerId) {
-        return customerDao.getAllByCompanyId(customerId);
-    }
-
-    @Override
     public void save(Customer customer) {
         customerDao.save(customer);
     }
@@ -40,7 +35,7 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public void delete(Customer customer) {
-        customerDao.delete(customer);
+    public void updateRentedCar(Customer customer) {
+        customerDao.updateRentedCar(customer);
     }
 }

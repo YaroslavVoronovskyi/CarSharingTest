@@ -2,7 +2,7 @@ package carsharing.processors;
 
 public interface ICustomerProcessors {
 
-    boolean doAction(int customerId);
+    boolean doActionWithCustomer(int customerId);
 
-    String getSupportedActionTitle();
+    String getSupportedCustomerActionTitle();
 }

@@ -1,14 +1,14 @@
-package carsharing.processors.impl.user;
+package carsharing.processors.impl.main;
 
 import carsharing.ConsoleReader;
 import carsharing.Constants;
 import carsharing.processors.ICompanyProcessors;
 import carsharing.processors.ICompanyProcessorsFactory;
-import carsharing.processors.IUsersRoleActionProcessor;
+import carsharing.processors.IMainActionProcessor;
 
-public class ManagerRoleProcessor implements IUsersRoleActionProcessor {
+public class ManagerProcessor implements IMainActionProcessor {
 
-    public ManagerRoleProcessor(ICompanyProcessorsFactory crudCompanyProcessorsFactory) {
+    public ManagerProcessor(ICompanyProcessorsFactory crudCompanyProcessorsFactory) {
         this.crudCompanyProcessorsFactory = crudCompanyProcessorsFactory;
     }
 
@@ -20,8 +20,8 @@ public class ManagerRoleProcessor implements IUsersRoleActionProcessor {
         while (needContinue) {
             String actionTitle = ConsoleReader.getStringFromConsole("1. Company list" + Constants.LINE_SEPARATOR
                     + "2. Create a company" + Constants.LINE_SEPARATOR + "0. Back");
-            ICompanyProcessors crudCompanyProcessors = crudCompanyProcessorsFactory.getProcessorByAction(actionTitle);
-            needContinue = crudCompanyProcessors.doAction();
+            ICompanyProcessors crudCompanyProcessors = crudCompanyProcessorsFactory.getCompanyProcessorByAction(actionTitle);
+            needContinue = crudCompanyProcessors.doActionWithCompany();
         }
         return true;
     }

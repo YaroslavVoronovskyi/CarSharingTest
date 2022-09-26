@@ -5,8 +5,6 @@ import carsharing.processors.ICustomerProcessors;
 import carsharing.service.ICarService;
 import carsharing.service.ICustomerService;
 
-import java.util.List;
-
 public class ReturnRentedCarProcessor implements ICustomerProcessors {
 
     private final ICustomerService customerService;
@@ -18,23 +16,20 @@ public class ReturnRentedCarProcessor implements ICustomerProcessors {
     }
 
     @Override
-    public boolean doAction(int customerId) {
-        List<Customer> customersList = customerService.getAll();
-        Customer customer = customersList.get(customerId - 1);
+    public boolean doActionWithCustomer(int customerId) {
+        Customer customer = customerService.getById(customerId);
         if (customer.getRentedCarId() <= 0) {
             System.out.println("You didn't rent a car!");
             return true;
-        } else if (customer.getRentedCarId() > 0) {
-            customer.setRentedCarId(null);
-            customerService.delete(customer);
-            System.out.println("You've returned a rented car!");
         }
-//        System.out.println("You've returned a rented car!");
+        customer.setRentedCarId(null);
+        customerService.updateRentedCar(customer);
+        System.out.println("You've returned a rented car!");
         return true;
     }
 
     @Override
-    public String getSupportedActionTitle() {
+    public String getSupportedCustomerActionTitle() {
         return "2";
     }
 }

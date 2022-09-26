@@ -8,9 +8,9 @@ import java.sql.Statement;
  * Class to manage connection to
  * h2 database
  */
-public class H2DbManager {
+public class H2DbManagerDemo {
     // Instance reference
-    private static H2DbManager instance;
+    private static H2DbManagerDemo instance;
     // Database path
     private static String dbPath;
     // Connection reference
@@ -20,7 +20,7 @@ public class H2DbManager {
      * @throws SQLException If can’t connect to database
      * @throws ClassNotFoundException If h2 driver class is not present
      */
-    private H2DbManager() throws SQLException,
+    private H2DbManagerDemo() throws SQLException,
             ClassNotFoundException {
         // Initializing driver
         Class.forName("org.h2.Driver");
@@ -44,11 +44,11 @@ public class H2DbManager {
      * Singleton instance getter
      * @return instance of H2DbManager
      */
-    public static H2DbManager getInstance() {
+    public static H2DbManagerDemo getInstance() {
         try {
             // Checking if instance is not created
             if (instance == null) {
-                instance = new H2DbManager();
+                instance = new H2DbManagerDemo();
             }
         } catch (Exception e) {
             e.printStackTrace();

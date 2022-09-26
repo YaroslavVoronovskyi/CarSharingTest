@@ -1,17 +1,17 @@
 package carsharing;
 
-import carsharing.processors.IUsersRoleActionProcessor;
-import carsharing.processors.IUsersRoleProcessorFactory;
+import carsharing.processors.IMainActionProcessor;
+import carsharing.processors.IMainProcessorFactory;
 
-public class CarSharing {
+public class CarSharingMenu {
 
-    private final IUsersRoleProcessorFactory processorFactory;
+    private final IMainProcessorFactory processorFactory;
 
-    public CarSharing(IUsersRoleProcessorFactory processorFactory) {
+    public CarSharingMenu(IMainProcessorFactory processorFactory) {
         this.processorFactory = processorFactory;
     }
 
-    public void runCarSharing() {
+    public void runCarSharingMenu() {
         try {
             boolean needContinue = true;
             while (needContinue) {
@@ -20,7 +20,7 @@ public class CarSharing {
                         "2. Log in as a customer" + Constants.LINE_SEPARATOR +
                         "3. Create a customer" + Constants.LINE_SEPARATOR +
                         "0. Exit");
-                IUsersRoleActionProcessor processor = processorFactory.getProcessorByAction(actionTitle);
+                IMainActionProcessor processor = processorFactory.getProcessorByAction(actionTitle);
                 needContinue = processor.doAction();
             }
         } catch (Exception exception) {

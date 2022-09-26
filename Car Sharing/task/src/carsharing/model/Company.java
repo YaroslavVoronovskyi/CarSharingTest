@@ -1,7 +1,6 @@
 package carsharing.model;
 
 import carsharing.Constants;
-
 public class Company {
 
     private int id;

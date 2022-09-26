@@ -14,11 +14,11 @@ public class CarProcessorsFactory implements ICarProcessorsFactory {
 
     public CarProcessorsFactory(List<ICarProcessors> carProcessorsList) {
         processorsMap = carProcessorsList.stream()
-                .collect(Collectors.toMap(ICarProcessors::getSupportedActionTitle, Function.identity()));
+                .collect(Collectors.toMap(ICarProcessors::getSupportedCarActionTitle, Function.identity()));
     }
 
     @Override
-    public ICarProcessors getProcessorByAction(String actionTitle) {
+    public ICarProcessors getCarProcessorByAction(String actionTitle) {
         return processorsMap.get(actionTitle);
     }
 }

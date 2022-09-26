@@ -48,16 +48,6 @@ public class ConsoleReader {
         return recordNumber;
     }
 
-    public static int getIntFromConsole(String message) {
-        System.out.println(message);
-        int recordNumber;
-        try {
-            recordNumber = Integer.parseInt(READER.readLine());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return recordNumber;
-    }
 
     private static void checkExpressionByNull(String value) {
         while (value == null) {

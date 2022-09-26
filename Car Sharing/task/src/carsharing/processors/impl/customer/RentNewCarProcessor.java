@@ -25,7 +25,7 @@ public class RentNewCarProcessor implements ICustomerProcessors {
     }
 
     @Override
-    public boolean doAction(int customerId) {
+    public boolean doActionWithCustomer(int customerId) {
         List<Company> companiesList = companyService.getAll();
         if (companiesList.size() == 0) {
             System.out.println("The company list is empty!");
@@ -47,41 +47,41 @@ public class RentNewCarProcessor implements ICustomerProcessors {
         int companyId = ConsoleReader.getIntFromConsole();
         Company company = companyService.getById(companyId);
 
-        List<Car> carsList = carService.getAllByCompanyId(company.getId());
+        List<Car> carsList = carService.getAllCarsByCompanyId(company.getId());
 
         if (carsList.size() == 0) {
             System.out.println("The car list is empty!");
+            int index = 0;
             for (Company company1 : companiesList) {
-                System.out.println(company1.getId() + Constants.DOT_SEPARATOR + company.getName());
+                index++;
+                System.out.println(index+ Constants.DOT_SEPARATOR + company1.getName());
             }
             System.out.println("0. Back");
             int companyId1 = ConsoleReader.getIntFromConsole();
-//            return true;
-        } else {
-            System.out.println("Choose a car: ");
-
-            int indexCar = 0;
-            for (Car car : carsList) {
-                indexCar++;
-                System.out.println(indexCar + Constants.DOT_SEPARATOR + car.getName());
-            }
-            System.out.println("0. Back");
-
-            int carId = ConsoleReader.getIntFromConsole();
-            Car car = carsList.get(carId - 1);
-
-            customer.setRentedCarId(car.getId());
-            car.setRented(true);
-            carService.update(car);
-            customerService.update(customer);
-            System.out.println("You rented '" + car.getName() + "'");
+            return true;
         }
+        System.out.println("Choose a car: ");
 
+        int indexCar = 0;
+        for (Car car : carsList) {
+            indexCar++;
+            System.out.println(indexCar + Constants.DOT_SEPARATOR + car.getName());
+        }
+        System.out.println("0. Back");
+
+        int carId = ConsoleReader.getIntFromConsole();
+        Car car = carsList.get(carId - 1);
+
+        customer.setRentedCarId(car.getId());
+        car.setRented(true);
+        carService.update(car);
+        customerService.update(customer);
+        System.out.println("You rented '" + car.getName() + "'");
         return true;
     }
 
     @Override
-    public String getSupportedActionTitle() {
+    public String getSupportedCustomerActionTitle() {
         return "1";
     }
 }

@@ -11,10 +11,6 @@ public class Car {
     public Car() {
     }
 
-    public Car(String name) {
-        this.name = name;
-    }
-
     public Car(String name, int companyId) {
         this.name = name;
         this.companyId = companyId;

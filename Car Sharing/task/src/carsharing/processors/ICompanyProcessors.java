@@ -2,7 +2,7 @@ package carsharing.processors;
 
 public interface ICompanyProcessors {
 
-    boolean doAction();
+    boolean doActionWithCompany();
 
-    String getSupportedActionTitle();
+    String getSupportedCompanyActionTitle();
 }

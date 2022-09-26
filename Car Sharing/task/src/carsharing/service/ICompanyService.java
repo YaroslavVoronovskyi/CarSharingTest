@@ -11,8 +11,4 @@ public interface ICompanyService {
     List<Company> getAll();
 
     void save(Company company);
-
-    void update(Company company);
-
-    void delete(Company company);
 }

@@ -14,7 +14,7 @@ public class CreateNewCompanyProcessor implements ICompanyProcessors {
     }
 
     @Override
-    public boolean doAction() {
+    public boolean doActionWithCompany() {
         String name = ConsoleReader.getStringFromConsole("Enter the company name:");
         Company company = new Company(name);
         companyService.save(company);
@@ -23,7 +23,7 @@ public class CreateNewCompanyProcessor implements ICompanyProcessors {
     }
 
     @Override
-    public String getSupportedActionTitle() {
+    public String getSupportedCompanyActionTitle() {
         return "2";
     }
 }

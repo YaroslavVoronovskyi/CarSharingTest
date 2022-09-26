@@ -22,7 +22,7 @@ public class ShowCompaniesListProcessor implements ICompanyProcessors {
     }
 
     @Override
-    public boolean doAction() {
+    public boolean doActionWithCompany() {
         List<Company> companiesList = companyService.getAll();
         if (companiesList.size() == 0) {
             System.out.println("The company list is empty!");
@@ -41,23 +41,22 @@ public class ShowCompaniesListProcessor implements ICompanyProcessors {
 
         if (companyId == 0) {
             return true;
-        } else {
-            boolean needContinue = true;
-            while (needContinue) {
-                Company company = companiesList.get(companyId - 1);
-                String actionTitle = ConsoleReader.getStringFromConsole("'" + company.getName() + "' company:" + Constants.LINE_SEPARATOR
-                        + "1. Car list" + Constants.LINE_SEPARATOR
-                        + "2. Create a car" + Constants.LINE_SEPARATOR
-                        + "0. Back");
-                ICarProcessors carsProcessors = carProcessorsFactory.getProcessorByAction(actionTitle);
-                needContinue = carsProcessors.doAction(company.getId());
-            }
+        }
+        boolean needContinue = true;
+        while (needContinue) {
+            Company company = companiesList.get(companyId - 1);
+            String actionTitle = ConsoleReader.getStringFromConsole("'" + company.getName() + "' company:" + Constants.LINE_SEPARATOR
+                    + "1. Car list" + Constants.LINE_SEPARATOR
+                    + "2. Create a car" + Constants.LINE_SEPARATOR
+                    + "0. Back");
+            ICarProcessors carProcessors = carProcessorsFactory.getCarProcessorByAction(actionTitle);
+            needContinue = carProcessors.doActionWithCar(company.getId());
         }
         return true;
     }
 
     @Override
-    public String getSupportedActionTitle() {
+    public String getSupportedCompanyActionTitle() {
         return "1";
     }
 }

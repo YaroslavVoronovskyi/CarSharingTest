@@ -4,12 +4,12 @@ import carsharing.processors.ICustomerProcessors;
 
 public class BackFromCustomerMenuToPreviousMenuProcessor implements ICustomerProcessors {
     @Override
-    public boolean doAction(int customerId) {
+    public boolean doActionWithCustomer(int customerId) {
         return false;
     }
 
     @Override
-    public String getSupportedActionTitle() {
+    public String getSupportedCustomerActionTitle() {
         return "0";
     }
 }

@@ -21,7 +21,7 @@ public class ShowCustomerRentedCarProcessor implements ICustomerProcessors {
     }
 
     @Override
-    public boolean doAction(int customerId) {
+    public boolean doActionWithCustomer(int customerId) {
         Customer customer = customerService.getById(customerId);
         if (customer.getRentedCarId() <= 0) {
             System.out.println("You didn't rent a car!");
@@ -38,7 +38,7 @@ public class ShowCustomerRentedCarProcessor implements ICustomerProcessors {
 
 
     @Override
-    public String getSupportedActionTitle() {
+    public String getSupportedCustomerActionTitle() {
         return "3";
     }
 }

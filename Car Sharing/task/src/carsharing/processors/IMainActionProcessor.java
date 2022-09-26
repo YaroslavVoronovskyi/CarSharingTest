@@ -1,6 +1,6 @@
 package carsharing.processors;
 
-public interface IUsersRoleActionProcessor {
+public interface IMainActionProcessor {
 
     boolean doAction();
 

@@ -1,6 +1,7 @@
 package carsharing.dao.impl;
 
 import carsharing.Constants;
+import carsharing.connection.H2DbManager;
 import carsharing.dao.ICompanyDao;
 import carsharing.model.Company;
 
@@ -106,15 +107,5 @@ public class CompanyDao implements ICompanyDao {
                 exception.printStackTrace();
             }
         }
-    }
-
-    @Override
-    public void update(Company company) {
-
-    }
-
-    @Override
-    public void delete(Company company) {
-
     }
 }

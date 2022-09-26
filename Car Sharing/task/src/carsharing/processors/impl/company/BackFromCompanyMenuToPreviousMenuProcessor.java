@@ -4,12 +4,12 @@ import carsharing.processors.ICompanyProcessors;
 
 public class BackFromCompanyMenuToPreviousMenuProcessor implements ICompanyProcessors {
     @Override
-    public boolean doAction() {
+    public boolean doActionWithCompany() {
         return false;
     }
 
     @Override
-    public String getSupportedActionTitle() {
+    public String getSupportedCompanyActionTitle() {
         return "0";
     }
 }

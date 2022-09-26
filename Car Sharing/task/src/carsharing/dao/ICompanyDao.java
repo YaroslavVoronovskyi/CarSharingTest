@@ -2,7 +2,6 @@ package carsharing.dao;
 
 import carsharing.model.Company;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public interface ICompanyDao {
@@ -12,8 +11,4 @@ public interface ICompanyDao {
     List<Company> getAll();
 
     void save(Company company);
-
-    void update(Company company);
-
-    void delete(Company company);
 }

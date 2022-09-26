@@ -14,11 +14,11 @@ public class CompanyProcessorFactory implements ICompanyProcessorsFactory {
 
     public CompanyProcessorFactory(List<ICompanyProcessors> companyProcessorsList) {
         processorsMap = companyProcessorsList.stream()
-                .collect(Collectors.toMap(ICompanyProcessors::getSupportedActionTitle, Function.identity()));
+                .collect(Collectors.toMap(ICompanyProcessors::getSupportedCompanyActionTitle, Function.identity()));
     }
 
     @Override
-    public ICompanyProcessors getProcessorByAction(String actionTitle) {
+    public ICompanyProcessors getCompanyProcessorByAction(String actionTitle) {
 
         return processorsMap.get(actionTitle);
     }

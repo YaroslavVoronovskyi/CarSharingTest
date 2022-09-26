@@ -1,5 +1,7 @@
 package carsharing.model;
 
+import carsharing.Constants;
+
 public class Customer {
 
     private int id;
@@ -13,11 +15,6 @@ public class Customer {
 
     public Customer(String name) {
         this.name = name;
-    }
-
-    public Customer(int id, String name, Integer rentedCarId) {
-        this.name = name;
-        this.rentedCarId = rentedCarId;
     }
 
     public int getId() {
@@ -46,10 +43,6 @@ public class Customer {
 
     @Override
     public String toString() {
-        return name;
+        return id + Constants.DOT_SEPARATOR + name + Constants.DELIMETER + rentedCarId;
     }
-
-//    public String toString() {
-//        return id + Constants.DOT_SEPARATOR + name + Constants.DELIMETER + rentedCarId;
-//    }
 }

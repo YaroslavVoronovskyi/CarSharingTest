@@ -1,11 +1,11 @@
-package carsharing.processors.impl.user;
+package carsharing.processors.impl.main;
 
 import carsharing.ConsoleReader;
 import carsharing.model.Customer;
-import carsharing.processors.IUsersRoleActionProcessor;
+import carsharing.processors.IMainActionProcessor;
 import carsharing.service.ICustomerService;
 
-public class CreateNewCustomerProcessor implements IUsersRoleActionProcessor {
+public class CreateNewCustomerProcessor implements IMainActionProcessor {
 
     private final ICustomerService customerService;
 

@@ -2,5 +2,5 @@ package carsharing.processors;
 
 public interface ICustomerProcessorsFactory {
 
-    ICustomerProcessors getProcessorByAction(String actionTitle);
+    ICustomerProcessors getCustomerProcessorByAction(String actionTitle);
 }

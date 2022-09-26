@@ -9,11 +9,9 @@ public interface ICustomerService {
 
     List<Customer> getAll();
 
-    List<Customer> getAllByCarId(int customerId);
-
     void save(Customer customer);
 
     void update(Customer customer);
 
-    void delete(Customer customer);
+    void updateRentedCar(Customer customer);
 }

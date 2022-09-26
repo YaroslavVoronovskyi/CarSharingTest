@@ -20,14 +20,9 @@ public class CarService implements ICarService {
         return carDao.getById(id);
     }
 
-//    @Override
-//    public List<Car> getAll() {
-//        return carDao.getAll();
-//    }
-
     @Override
-    public List<Car> getAllByCompanyId(int companyId) {
-        return carDao.getAllByCompanyId(companyId);
+    public List<Car> getAllCarsByCompanyId(int companyId) {
+        return carDao.getAllCarsByCompanyId(companyId);
     }
 
     @Override
@@ -38,15 +33,5 @@ public class CarService implements ICarService {
     @Override
     public void update(Car car) {
         carDao.update(car);
-    }
-
-    @Override
-    public void delete(Car car) {
-        carDao.delete(car);
-    }
-
-    @Override
-    public Car getCar(int companyId) {
-        return carDao.getCar(companyId);
     }
 }

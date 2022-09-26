@@ -28,14 +28,4 @@ public class CompanyService implements ICompanyService {
     public void save(Company company) {
         companyDao.save(company);
     }
-
-    @Override
-    public void update(Company company) {
-        companyDao.update(company);
-    }
-
-    @Override
-    public void delete(Company company) {
-        companyDao.delete(company);
-    }
 }
